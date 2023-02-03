@@ -21,8 +21,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportRuntimeHints;
-import org.springframework.samples.petclinic.vet.SpecialityRepository;
 import org.springframework.samples.petclinic.vet.Specialty;
+import org.springframework.samples.petclinic.vet.SpecialtyRepository;
 import org.springframework.samples.petclinic.vet.Vet;
 import org.springframework.samples.petclinic.vet.VetRepository;
 
@@ -31,42 +31,42 @@ import org.springframework.samples.petclinic.vet.VetRepository;
  * PetClinic Spring Boot Application.
  *
  * @author Dave Syer
- *
  */
-	/** 1.Crear un objeto Vet sin Speciality
-	* 2.Persistir el objeto Vet en BBDD
-	* 3.Consultar por ID y comprobar que se ha creado correctamente
-	* 4.Editar el elemento recién creado para añadir una Speciality concreta
-	* 5.Listar todos los veterinarios existentes
-	 *
-	 A * vetsRepository crear estos métodos y usarlos desde cualquier parte del código
-	 * 1 Obtener una lista de Vets filtrando por lastName
-	 * 2 Obtener una lista de Vets filtrando por firstName y lastName
-	 * 3 Obtener una lista de Vets buscando en firstName o lastName
 
-	 B Organizar el código para que esté en base a servicios y no sea llamadas directas a dao
+/** 1.Crear un objeto Vet sin Speciality
+ * 2.Persistir el objeto Vet en BBDD
+ * 3.Consultar por ID y comprobar que se ha creado correctamente
+ * 4.Editar el elemento recién creado para añadir una Speciality concreta
+ * 5.Listar todos los veterinarios existentes
+ *
+ A * vetsRepository crear estos métodos y usarlos desde cualquier parte del código
+ * 1 Obtener una lista de Vets filtrando por lastName
+ * 2 Obtener una lista de Vets filtrando por firstName y lastName
+ * 3 Obtener una lista de Vets buscando en firstName o lastName
 
-	 C repository crear estos métodos y usarlos en cualquier parte del código
-	 4 Obtener las mascotas nacidas en 2010 ordenadas por fecha de nacimiento ascendente.
-	 5 Crear 3 visitas nuevas para diferentes mascotas
-	 6 Obtener todas las visitas para una mascota. 
-	 7 Obtener las 4 visitas más recientes de todo el sistema.
+ B Organizar el código para que esté en base a servicios y no sea llamadas directas a dao
 
-	 Crear una página con detalle de factura. Vale solo con un detalle.
-	 */
+ C repository crear estos métodos y usarlos en cualquier parte del código
+ 4 Obtener las mascotas nacidas en 2010 ordenadas por fecha de nacimiento ascendente.
+ 5 Crear 3 visitas nuevas para diferentes mascotas
+ 6 Obtener todas las visitas para una mascota. 
+ 7 Obtener las 4 visitas más recientes de todo el sistema.
+
+ Crear una página con detalle de factura. Vale solo con un detalle.
+ */
 
 @SpringBootApplication
 @ImportRuntimeHints(PetClinicRuntimeHints.class)
 public class PetClinicApplication {
 
-	public static void main(String[] args)
-	{
+	public static void main(String[] args) {
 
 		//LLamamos a todas las anotaciones @
 		SpringApplication.run(PetClinicApplication.class, args);
 	}
-@Bean
-	public CommandLineRunner demoVetRepository(VetRepository vetRepository, SpecialityRepository specialtyRepository){
+
+	@Bean
+	public CommandLineRunner demoVetRepository(VetRepository vetRepository, SpecialtyRepository specialtyRepository) {
 		return (args) -> {
 			System.out.println("Creamos un objeto Vet");
 			Vet vet = new Vet();
@@ -87,16 +87,13 @@ public class PetClinicApplication {
 			System.out.println(vet.toString());
 
 			System.out.println("Listamos todos los veterinarios: ");
-			for (Vet v : vetRepository.findAll()){
+			for (Vet v : vetRepository.findAll()) {
 				System.out.println("Veterinario = " + v);
 			}
 
 
-
-
 		};
-}
-
+	}
 
 
 }
