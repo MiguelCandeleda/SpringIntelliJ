@@ -1,6 +1,6 @@
 package templates.Factura
 
-import com.journaldev.spring.model.User
+//import com.journaldev.spring.model.User
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
 import org.springframework.validation.annotation.Validated
@@ -25,10 +25,11 @@ class ControladorFactura {
         return "home"
     }
 
-    @RequestMapping(value = ["/user"], method = [RequestMethod.POST])
+//    Intento captar al url /admin para mandar la orden al controlador y que nos ofrezca la nueva vista
+    /*@RequestMapping(value = ["/user"], method = [RequestMethod.POST])
     fun user(@Validated user: User, model: Model): String {
         println("User Page Requested")
         model.addAttribute("userName", user.getUserName())
         return "user"
-    }
+    }*/
 }

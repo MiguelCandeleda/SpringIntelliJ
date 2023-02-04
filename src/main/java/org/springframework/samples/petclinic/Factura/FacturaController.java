@@ -35,7 +35,7 @@ public class FacturaController {
 	@RequestMapping(value = "/user", method = RequestMethod.POST)
 	public String user(@Validated Factura factura, Model model) {
 		System.out.println("User Page Requested");
-		model.addAttribute("userName", factura.getUserName());
+		model.addAttribute("userName", factura.getIdFactura());
 		return "user";
 	}
 }
