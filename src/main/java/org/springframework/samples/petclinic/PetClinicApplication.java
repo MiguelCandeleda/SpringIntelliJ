@@ -19,6 +19,7 @@ package org.springframework.samples.petclinic;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ImportRuntimeHints;
 import org.springframework.samples.petclinic.vet.Specialty;
@@ -29,13 +30,13 @@ import org.springframework.samples.petclinic.vet.VetRepository;
 
 /**
  * PetClinic Spring Boot Application.
- *
- * @author Dave Syer
+ * Declaramos una clase PetClinicApplication que hará de dispatcher servlet para realizar las peticiones al servidor por medio
+ * del protocolo http y así generar el contenido
  *
  */
 @SpringBootApplication
 @ImportRuntimeHints(PetClinicRuntimeHints.class)
-public class PetClinicApplication {
+public class PetClinicApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args)
 	{
@@ -44,7 +45,7 @@ public class PetClinicApplication {
 	}
 
 	// SpecialtyRepository specialtyRepository
-	@Bean
+	/*@Bean
 	public CommandLineRunner demoVetRepository(VetRepository vetRepository) {
 		return (args) -> {
 			System.out.println("Creamos un objeto Vet");
@@ -59,12 +60,12 @@ public class PetClinicApplication {
 			Vet vetAux = vetRepository.findById(vet.getId());
 			System.out.println("El veterinario introducido es:" + vetRepository.findById(vetAux.getId()));
 
-			/*System.out.println("Editamos el objeto y añadimos una especialidad: ");
+			*//*System.out.println("Editamos el objeto y añadimos una especialidad: ");
 			Specialty especialidad = specialtyRepository.findById(1);
 			vet.addSpecialty(especialidad);
 			vetRepository.save(vet);
 			System.out.println(vet.toString());
-*/
+*//*
 
 			System.out.println("Listamos todos los veterinarios: ");
 			for (Vet v : vetRepository.findAll()) {
@@ -76,15 +77,15 @@ public class PetClinicApplication {
 				System.out.println("Veterinario = " + v.getFirstName() + "Apellido: "+ v.getLastName());
 			}
 
-    /*  System.out.println("Listamos veterinarios por nombre y apellido: ");
+    *//*  System.out.println("Listamos veterinarios por nombre y apellido: ");
       for (Vet v : vetRepository.findByLastName() ) {
         System.out.println("Veterinario = " + v.getFirstName() + "Apellido: "+ v.getLastName());
-      }*/
+      }*//*
 
 
 		};
 	}
-
+*/
 
 }
 
